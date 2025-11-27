@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jdens Bakery - Delicious Cakes & Pastries</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2691E;
+            --accent: #FFD700;
+            --light: #FFF8DC;
+            --dark: #5D4037;
+            --text: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .order-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .order-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1089&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btn {
+            background-color: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .hero-btn:hover {
+            background-color: #FFC107;
+        }
+        
+        /* Clients Section */
+        .clients {
+            padding: 50px 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .clients h2 {
+            margin-bottom: 30px;
+            color: var(--primary);
+        }
+        
+        .client-logos {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .client-logos span {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: var(--light);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .service-card a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .service-card a i {
+            margin-left: 5px;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 200px;
+            background-color: var(--light);
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .product-content p {
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+        
+        .product-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-links li {
+                margin: 5px 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">J<span>dens</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Our Products</a></li>
+                    <li><a href="#products">Gallery</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+                <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20place%20an%20order" class="order-btn" target="_blank">Order Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Delicious Cakes & Pastries for Every Occasion</h1>
+                <p>Jdens Bakery creates mouthwatering cakes, pastries, and desserts made with the finest ingredients. From custom cakes to coconut chips, we've got your sweet cravings covered.</p>
+                <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20place%20an%20order" class="hero-btn" target="_blank">Order Your Treat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="container">
+            <h2>Trusted by Customers Across Nigeria</h2>
+            <div class="client-logos">
+                <span>Lagos</span>
+                <span>Abuja</span>
+                <span>Port Harcourt</span>
+                <span>Ibadan</span>
+                <span>Kano</span>
+                <span>Enugu</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>At Jdens Bakery, we offer a wide variety of delicious treats made with love and the finest ingredients.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Custom Cakes</h3>
+                    <p>Beautifully designed custom cakes for weddings, anniversaries, and all your special occasions.</p>
+                    <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20a%20custom%20cake" target="_blank">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>Coconut Chips</h3>
+                    <p>Crunchy, delicious coconut chips - the perfect healthy snack for any time of day.</p>
+                    <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20coconut%20chips" target="_blank">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>Cake Parfait</h3>
+                    <p>Layered cake parfaits with creamy fillings and fresh fruits - a delightful dessert experience.</p>
+                    <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20cake%20parfait" target="_blank">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>Yoghurt Parfait</h3>
+                    <p>Healthy and delicious yoghurt parfaits with granola and fresh fruits.</p>
+                    <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20yoghurt%20parfait" target="_blank">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>Pastries</h3>
+                    <p>Freshly baked pastries including meat pies, sausage rolls, and more for your enjoyment.</p>
+                    <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20pastries" target="_blank">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <h3>Catering Services</h3>
+                    <p>Complete dessert catering for events, parties, and corporate gatherings.</p>
+                    <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20inquire%20about%20catering%20services" target="_blank">Order Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Featured Products</h2>
+                <p>Explore some of our most popular creations</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80');"></div>
+                    <div class="product-content">
+                        <h3>Custom Cakes</h3>
+                        <p>Beautifully decorated custom cake with your choice of flavors and fillings.</p>
+                        <div class="product-price">From ₦15,000</div>
+                        <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20a%20custom%20birthday%20cake" class="order-btn" target="_blank">Order Now</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1612203985729-70726954388c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1160&q=80');"></div>
+                    <div class="product-content">
+                        <h3>Coconut Chips Pack</h3>
+                        <p>Crunchy, naturally sweet coconut chips - a healthy snack alternative.</p>
+                        <div class="product-price">From ₦1000</div>
+                        <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20coconut%20chips" class="order-btn" target="_blank">Order Now</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80');"></div>
+                    <div class="product-content">
+                        <h3>Cake Parfait </h3>
+                        <p>Layers of cake, cream - perfect for individual servings.</p>
+                        <div class="product-price">From ₦2000 </div>
+                        <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20cake%20parfait" class="order-btn" target="_blank">Order Now</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=765&q=80');"></div>
+                    <div class="product-content">
+                        <h3>Pastry Assortment</h3>
+                        <p>A selection of our finest pastries including meat pies, sausage rolls, and more.</p>
+                        <div class="product-price">From ₦5,000</div>
+                        <a href="https://wa.me/2348033674621?text=Hello%20Jdens%20Bakery,%20I%20would%20like%20to%20order%20pastries" class="order-btn" target="_blank">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Jdens Bakery</h3>
+                    <p>Creating delicious cakes, pastries, and desserts with love and the finest ingredients since 2018.</p>
+                   
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Our Products</a></li>
+                        <li><a href="#products">Gallery</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +234 803 367 4621</li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Business Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 8am - 8pm</li>
+                        <li>Saturday: 9am - 6pm</li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Jdens Bakery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // WhatsApp order function
+        function orderOnWhatsApp(product) {
+            const phoneNumber = "2348033674621";
+            let message = "Hello Jdens Bakery, I would like to place an order";
+            
+            if(product) {
+                message += ` for ${product}`;
+            }
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+    </script>
+</body>
+</html>
